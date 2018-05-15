@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/JudieT215/BurgerShop#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
     "mysql": "^2.15.0"
   }
 }

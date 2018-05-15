@@ -1,0 +1,13 @@
+body
+{
+background-image: url("../img/burgerback.jpg");
+background-color: rgb(182, 228, 182);
+}
+
+#green-back {
+    background-color: rgb(182, 228, 182);
+}
+
+pre{
+    font-size: 25px;
+}

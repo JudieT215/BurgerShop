@@ -1,33 +1,58 @@
-<h1>Burgers!</h1>
-
-<h2>Which burgers would you like to eat!</h2>
-
-
-<ul>
-    {{#each burgers}} {{#unless eaten}} {{> burger-block eaten=true}} {{/unless}} {{/each}}
-</ul>
-
-<h2>Burgers that have been eaten!</h2>
-
-<ul>
-    {{#each burgers}} {{#if eaten}} {{> burger-block eaten=false}} {{/if}} {{/each}}
-</ul>
-
-<h2>Please add a NEW Burger</h2>
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="burgers_tb">Burger Name:</label>
-        <input type="text" id="BurgerName" name="name">
+<div class = "contanier">
+ <div class ="row justify-content-md-center">
+    <div class="jumbotron">
+     <div class = "col-xs-12 centered"> 
+         <h1>Welcome to the BurgerShop</h1>
+     </div>
     </div>
-
-    <div class="form-group">
-        <label for="eaten">Has this burger been eaten?</label>
-        <br>
-        <input type="radio" name="eaten" value="1" checked> eaten!
-        <br>
-        <input type="radio" name="eaten" value="0"> list
+ </div>
+<div class ="row">
+<div class = "col-sm-6 text-center" class ="task">
+<div class="card">
+    <div class="card-body">
+    {{#each burgers}}
+        {{#unless this.eaten}}
+    <div class =".col-sm-9 text-center">
+        <pre>{{this.id}}. {{this.name}}</pre>
     </div>
+        <div class=".col-sm-3 text-center">
+            <form method="POST" action="burgers/update?_method_PUT" class="button-size">
+                <input type="hidden" name="burger_id" type="text" value={{this.id}}>
+               
+                <button type="submit" class="btn btn-info">Eat this!</button>
+            </form>
+        </div>
+        {{/unless}}
+        {{/each}}
+     </div>
+    </div>
+</div> 
+    <div class ="col-sm-6 text-center" class="task">
+    {{#each burgers}}
+    {{#if this.eaten}}
+        <input class ="form-control" type = "text" placeholder="{{this.id}}. {{this.name}}" readonly>
+    {{/if}}
+    {{/each}}
+    </div>
+</div>
 
-    <button type="submit">Add Burger to list</button>
-</form>
+<div class ="row justify-content-md-center">
+  
+    <div class="col-sm-6 text-center">
+        <div class="card">
+            <div class="card-header">
+        <h2>Add New Burger<h2>
+            </div>
+            <div class="card-body"></div>
+                <form method="POST" action="create/burgers">
+                    <textarea type="text" name="newBurger"> </textarea>
+                    <button type="submit" class="btn btn-success" >Add a NEW Burger</button>
+                </form>
+            </div>
+</div>
+</div>
+</div>
+
+
+
+
